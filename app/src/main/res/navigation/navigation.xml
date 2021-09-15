@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_title" >
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -22,6 +23,10 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment2"
             app:destination="@id/gameOverFragment2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true" />
         <action
@@ -38,6 +43,10 @@
         <action
             android:id="@+id/action_gameOverFragment2_to_gameFragment2"
             app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/fade_out"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@id/titleFragment" />
     </fragment>
     <fragment
@@ -49,5 +58,16 @@
             android:id="@+id/action_gameWonFragment_to_gameFragment2"
             app:destination="@id/gameFragment"
             app:popUpTo="@id/titleFragment" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+        <argument
+            android:name="numCorrect"
+            app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.android.navigation.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>
